@@ -60,6 +60,10 @@ msgstr "APN 설정"
 msgid "Acknowledge Excessive Actuation"
 msgstr "과도한 작동을 확인"
 
+#: openpilot/selfdrive/ui/sunnypilot/layouts/settings/visuals.py
+msgid "Adjacent Vehicles on Instrument Cluster (CCNC)"
+msgstr "계기판 옆차선 차량 표시 (CCNC)"
+
 #: system/ui/widgets/network.py
 msgid "Advanced"
 msgstr "고급"
@@ -325,6 +329,14 @@ msgstr "파이어호스 모드"
 msgid "Follow the prompts to complete the pairing process"
 msgstr ""
 
+#: openpilot/selfdrive/ui/sunnypilot/layouts/settings/visuals.py
+msgid "For CCNC-equipped Hyundai/Kia/Genesis vehicles, display the Highway Driving Pilot (HDP) theme on the instrument cluster while lateral control is active. This is a visual change only and does not affect driving behavior. Takes effect on the next drive."
+msgstr "CCNC 계기판이 장착된 현대/기아/제네시스 차량에서 조향 제어가 활성화된 동안 계기판에 HDP(고속도로 주행 파일럿) 테마를 표시합니다. 표시만 바뀌며 주행에는 영향을 주지 않습니다. 다음 주행부터 적용됩니다."
+
+#: openpilot/selfdrive/ui/sunnypilot/layouts/settings/visuals.py
+msgid "For CCNC-equipped Hyundai/Kia/Genesis vehicles, restyle vehicles detected by the corner radars as car icons on the instrument cluster. Vehicles behind the adjacent lanes blink at a rate based on their distance. This is a visual change only and does not affect driving behavior. Takes effect on the next drive."
+msgstr "CCNC 계기판이 장착된 현대/기아/제네시스 차량에서 코너 레이더가 감지한 주변 차량을 계기판에 자동차 아이콘으로 표시합니다. 옆차선 후방 차량은 거리에 따른 주기로 깜빡입니다. 표시만 바뀌며 주행에는 영향을 주지 않습니다. 다음 주행부터 적용됩니다."
+
 #: system/ui/widgets/network.py
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
 msgid "Following Distance"
@@ -343,6 +355,10 @@ msgstr "양호"
 #: openpilot/selfdrive/ui/widgets/pairing_dialog.py
 msgid "Go to https://connect.comma.ai on your phone"
 msgstr "휴대폰에서 https://connect.comma.ai 에 접속하세요"
+
+#: openpilot/selfdrive/ui/sunnypilot/layouts/settings/visuals.py
+msgid "HDP Theme on Instrument Cluster (CCNC)"
+msgstr "계기판 HDP 테마 (CCNC)"
 
 #: openpilot/selfdrive/ui/layouts/sidebar.py
 msgid "HIGH"
