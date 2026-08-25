@@ -93,6 +93,14 @@ class VisualsLayout(Widget):
            "This displays what the car is currently doing, not what the planner is requesting."),
         None,
       ),
+      "CcncHdpDisplay": (
+        lambda: tr("HDP Theme on Instrument Cluster (CCNC)"),
+        tr("For CCNC-equipped Hyundai/Kia/Genesis vehicles, display the Highway Driving Pilot (HDP) theme " +
+           "on the instrument cluster while lateral control is active. " +
+           "This is a visual change only and does not affect driving behavior. " +
+           "Takes effect on the next drive."),
+        None,
+      ),
     }
     self._toggles = {}
     for param, (title, desc, callback) in self._toggle_defs.items():
