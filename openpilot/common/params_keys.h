@@ -239,6 +239,7 @@ inline static std::unordered_map<std::string, ParamKeyAttributes> keys = {
     {"BackupManager_RestoreVersion", {PERSISTENT, STRING}},
 
     // sunnypilot car specific params
+    {"CcncAdjacentVehicleDisplay", {PERSISTENT | BACKUP, BOOL, "0"}},
     {"CcncHdpDisplay", {PERSISTENT | BACKUP, BOOL, "0"}},
     {"HyundaiLongitudinalTuning", {PERSISTENT | BACKUP, INT, "0"}},
     {"SubaruStopAndGo", {PERSISTENT | BACKUP, BOOL, "0"}},

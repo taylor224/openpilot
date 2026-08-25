@@ -101,6 +101,15 @@ class VisualsLayout(Widget):
            "Takes effect on the next drive."),
         None,
       ),
+      "CcncAdjacentVehicleDisplay": (
+        lambda: tr("Adjacent Vehicles on Instrument Cluster (CCNC)"),
+        tr("For CCNC-equipped Hyundai/Kia/Genesis vehicles, restyle vehicles detected by the corner radars " +
+           "as car icons on the instrument cluster. Vehicles behind the adjacent lanes blink at a rate " +
+           "based on their distance. " +
+           "This is a visual change only and does not affect driving behavior. " +
+           "Takes effect on the next drive."),
+        None,
+      ),
     }
     self._toggles = {}
     for param, (title, desc, callback) in self._toggle_defs.items():
