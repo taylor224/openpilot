@@ -182,6 +182,18 @@ msgid "Device"
 msgstr "장치"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
+msgid "Disable"
+msgstr "끄기"
+
+#: openpilot/selfdrive/ui/layouts/settings/toggles.py
+msgid "Disable Driver Monitoring"
+msgstr "운전자 모니터링 끄기"
+
+#: openpilot/selfdrive/ui/layouts/settings/toggles.py
+msgid "Stop the driver monitoring camera from watching your attention. sunnypilot will no longer warn you or force a disengagement when you look away from the road or fall asleep, and nothing will stop the car from continuing on its own. You remain fully responsible for watching the road and for the vehicle at all times."
+msgstr "운전자 모니터링 카메라가 운전자의 주의 상태를 감시하지 않습니다. 전방에서 시선을 돌리거나 졸더라도 sunnypilot이 더 이상 경고하거나 강제로 해제하지 않으며, 차량이 그대로 주행을 이어가는 것을 막아주지 않습니다. 항상 전방을 주시하고 차량을 통제할 책임은 전적으로 운전자에게 있습니다."
+
+#: openpilot/selfdrive/ui/layouts/settings/toggles.py
 msgid "Disengage on Accelerator Pedal"
 msgstr "가속 페달로 해제"
 

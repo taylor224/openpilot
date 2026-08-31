@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 import openpilot.cereal.messaging as messaging
-from openpilot.common.params import Params
+from openpilot.common.params import Params, UnknownKeyName
 from openpilot.common.realtime import config_realtime_process
+from openpilot.common.swaglog import cloudlog
 from openpilot.selfdrive.monitoring.policy import DriverMonitoring
+
+
+def read_dm_disabled(params, warn=False):
+  # DisableDriverMonitoring is unknown until params_keys.h has been rebuilt. Falling over here
+  # would stop driverMonitoringState entirely, so keep monitoring on until the key really exists.
+  try:
+    return params.get_bool("DisableDriverMonitoring")
+  except UnknownKeyName:
+    if warn:
+      cloudlog.error("DisableDriverMonitoring key missing, rebuild required; driver monitoring stays enabled")
+    return False
 
 
 def dmonitoringd_thread():
@@ -13,7 +25,8 @@ def dmonitoringd_thread():
   sm = messaging.SubMaster(['driverStateV2', 'extrinsicsCalibration', 'carState', 'selfdriveState', 'modelV2',
                             'carControl'], poll='driverStateV2')
 
-  DM = DriverMonitoring(rhd_saved=params.get_bool("IsRhdDetected"), always_on=params.get_bool("AlwaysOnDM"))
+  DM = DriverMonitoring(rhd_saved=params.get_bool("IsRhdDetected"), always_on=params.get_bool("AlwaysOnDM"),
+                        disabled=read_dm_disabled(params, warn=True))
   demo_mode=False
 
   # 20Hz <- dmonitoringmodeld
@@ -36,6 +49,7 @@ def dmonitoringd_thread():
     # load live always-on toggle
     if sm['driverStateV2'].frameId % 40 == 1:
       DM.always_on = params.get_bool("AlwaysOnDM")
+      DM.disabled = read_dm_disabled(params)
       demo_mode = params.get_bool("IsDriverViewEnabled")
 
     # save rhd virtual toggle every 5 mins

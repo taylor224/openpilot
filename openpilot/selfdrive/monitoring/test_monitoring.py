@@ -52,8 +52,8 @@ always_true = [True] * int(TEST_TIMESPAN / DT_DMON)
 always_false = [False] * int(TEST_TIMESPAN / DT_DMON)
 
 class TestMonitoring(OpenpilotTestCase):
-  def _run_seq(self, msgs, interaction, engaged, lowspeed):
-    DM = DriverMonitoring()
+  def _run_seq(self, msgs, interaction, engaged, lowspeed, disabled=False):
+    DM = DriverMonitoring(disabled=disabled)
     alert_lvls = []
     for idx in range(len(msgs)):
       DM._update_states(msgs[idx], [0, 0, 0], 0, engaged[idx], lowspeed[idx])
@@ -189,6 +189,53 @@ class TestMonitoring(OpenpilotTestCase):
     assert alert_lvls[int((INVISIBLE_SECONDS_TO_RED+0.5*_visible_time)/DT_DMON)] == 3
     assert alert_lvls[int((INVISIBLE_SECONDS_TO_RED+_visible_time+0.5)/DT_DMON)] == 3
     assert alert_lvls[int((INVISIBLE_SECONDS_TO_RED+_visible_time+1+0.1)/DT_DMON)] == 0
+
+  # engaged, always distracted driver, but the user turned driver monitoring off in settings
+  #  - no alert, no lockout and no force decel should ever be published
+  def test_driver_monitoring_disabled(self):
+    alert_lvls, d_status = self._run_seq(always_distracted, always_false, always_true, always_false, disabled=True)
+    assert all(a == 0 for a in alert_lvls)
+    assert not d_status.lockout_active
+    assert d_status.awareness == 1.
+
+    dm = d_status.get_state_packet().driverMonitoringState
+    assert not dm.lockout
+    assert not dm.alwaysOnLockout
+    assert not dm.noResponseForceDecel
+    assert dm.visionPolicyState.awarenessPercent == 100
+    assert dm.visionPolicyState.uncertainOffroadAlertPercent == 0
+
+  # driver monitoring turned off mid-drive while already locked out, then turned back on
+  #  - disabling must clear an active lockout, re-enabling must restore the full escalation
+  def test_driver_monitoring_disabled_clears_lockout(self):
+    _, d_status = self._run_seq(always_distracted, always_false, always_true, always_false)
+    assert d_status.lockout_active
+
+    d_status.disabled = True
+    d_status._update_events(car_interaction_NOT_DETECTED, True, False, 0)
+    assert not d_status.lockout_active
+    assert d_status.alert_level == 0
+
+    d_status.disabled = False
+    alert_lvls = []
+    for _ in range(int(TEST_TIMESPAN / DT_DMON)):
+      d_status._update_states(msg_DISTRACTED, [0, 0, 0], 0, True, False)
+      d_status._update_events(car_interaction_NOT_DETECTED, True, False, 0)
+      alert_lvls.append(d_status.alert_level)
+    assert alert_lvls[int(DISTRACTED_SECONDS_TO_RED / DT_DMON)] == 3
+
+  # dmonitoringd skips run_step() when sm.all_checks() fails, but still publishes
+  #  - a stale alert/lockout must not survive the user turning driver monitoring off
+  def test_driver_monitoring_disabled_without_update(self):
+    _, d_status = self._run_seq(always_no_face, always_false, always_true, always_false)
+    assert d_status.alert_level == 3
+    assert d_status.lockout_active
+
+    d_status.disabled = True
+    dm = d_status.get_state_packet().driverMonitoringState  # no _update_events() in between
+    assert dm.alertLevel == log.DriverMonitoringState.AlertLevel.none
+    assert not dm.lockout
+    assert not dm.noResponseForceDecel
 
   # disengaged, always distracted driver
   #  - dm should stay quiet when not engaged

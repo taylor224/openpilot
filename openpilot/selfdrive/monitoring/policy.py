@@ -129,7 +129,7 @@ def face_orientation_from_model(orient_model, pos_model, rpy_calib):
 
 
 class DriverMonitoring:
-  def __init__(self, rhd_saved=False, settings=None, always_on=False):
+  def __init__(self, rhd_saved=False, settings=None, always_on=False, disabled=False):
     # init policy settings
     self.settings = settings if settings is not None else DRIVER_MONITOR_SETTINGS()
 
@@ -143,6 +143,7 @@ class DriverMonitoring:
 
     self.alert_level = AlertLevel.none
     self.always_on = always_on
+    self.disabled = disabled
     self.distracted_types = defaultdict(bool)
     self.driver_distracted = False
     self.driver_distraction_filter = FirstOrderFilter(0., self.settings._DISTRACTED_FILTER_TS, DT_DMON)
@@ -311,9 +312,28 @@ class DriverMonitoring:
     elif self.face_detected and self.pose.low_std:
       self.hi_stds = 0
 
+  def _clear_lockout(self):
+    self.lockout_active = False
+    self.alert_3_cnt = 0
+    self.cnt_since_alert_3 = 0
+    self.no_response_cnt = 0
+    self.lockout_time_elapsed = 0
+
+  def _apply_disabled(self):
+    # driver monitoring turned off by the user: hold full awareness so no alert,
+    # lockout or force-decel is ever raised downstream
+    self.alert_level = AlertLevel.none
+    self._reset_awareness()
+    self._clear_lockout()
+    self.dcam_uncertain_cnt = 0
+
   def _update_events(self, driver_engaged, op_engaged, lowspeed, wrong_gear):
     self.alert_level = AlertLevel.none
     self.driver_interacting = driver_engaged
+
+    if self.disabled:
+      self._apply_disabled()
+      return
 
     if self.alert_3_cnt >= self.settings._MAX_ALERT_3 or self.no_response_cnt >= self.settings._MAX_NO_RESPONSE:
       if not self.lockout_active:
@@ -325,11 +345,7 @@ class DriverMonitoring:
     if self.lockout_active:
       self.lockout_time_elapsed += 1
       if self.lockout_time_elapsed > self.lockout_duration:
-        self.lockout_active = False
-        self.alert_3_cnt = 0
-        self.cnt_since_alert_3 = 0
-        self.no_response_cnt = 0
-        self.lockout_time_elapsed = 0
+        self._clear_lockout()
 
     always_on_valid = self.always_on and not wrong_gear
     if (self.driver_interacting and self.awareness > 0 and self.active_policy == MonitoringPolicy.wheeltouch) or \
@@ -385,6 +401,11 @@ class DriverMonitoring:
         self.alert_level = AlertLevel.one
 
   def get_state_packet(self, valid=True):
+    # dmonitoringd skips run_step() when the SubMaster checks fail, so re-apply here as well:
+    # otherwise a stale alert level or lockout keeps being published after the user turns DM off
+    if self.disabled:
+      self._apply_disabled()
+
     # build driverMonitoringState packet
     dat = messaging.new_message('driverMonitoringState', valid=valid)
     dm = dat.driverMonitoringState

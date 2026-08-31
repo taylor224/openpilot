@@ -827,6 +827,18 @@ msgid "Enable driver monitoring even when sunnypilot is not engaged."
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
+msgid "Stop the driver monitoring camera from watching your attention. sunnypilot will no longer warn you or force a disengagement when you look away from the road or fall asleep, and nothing will stop the car from continuing on its own. You remain fully responsible for watching the road and for the vehicle at all times."
+msgstr ""
+
+#: openpilot/selfdrive/ui/layouts/settings/toggles.py
+msgid "Disable Driver Monitoring"
+msgstr ""
+
+#: openpilot/selfdrive/ui/layouts/settings/toggles.py
+msgid "Disable"
+msgstr ""
+
+#: openpilot/selfdrive/ui/layouts/settings/toggles.py
 msgid "Upload data from the driver facing camera and help improve the driver monitoring algorithm."
 #: openpilot/selfdrive/ui/layouts/settings/settings.py
 msgid "Device"

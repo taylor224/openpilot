@@ -1,13 +1,35 @@
+from collections.abc import Callable
+
 from openpilot.cereal import log
 
 from openpilot.system.ui.widgets.scroller import NavScroller
-from openpilot.selfdrive.ui.mici.widgets.button import BigToggle, BigParamControl, BigMultiParamToggle
+from openpilot.selfdrive.ui.mici.widgets.button import BigToggle, BigParamControl, BigMultiParamToggle, GreyBigButton
+from openpilot.selfdrive.ui.mici.widgets.dialog import BigConfirmationCircleButton
 from openpilot.system.ui.lib.application import gui_app
-from openpilot.selfdrive.ui.layouts.settings.common import restart_needed_callback
+from openpilot.selfdrive.ui.layouts.settings.common import restart_needed_callback, get_bool_safe, param_known
 from openpilot.selfdrive.ui.ui_state import ui_state
 from openpilot.selfdrive.ui.mici.layouts.settings.initial_cruise_speed import InitialCruiseSpeedButton
 
 PERSONALITY_TO_INT = log.LongitudinalPersonality.schema.enumerants
+
+
+class DisableDriverMonitoringConfirmPage(NavScroller):
+  def __init__(self, on_confirm: Callable[[], None]):
+    super().__init__()
+
+    accept = BigConfirmationCircleButton("disable\ndriver monitoring",
+                                         gui_app.texture("icons_mici/setup/driver_monitoring/dm_check.png", 64, 64),
+                                         lambda: self.dismiss(on_confirm))
+
+    self._scroller.add_widgets([
+      GreyBigButton("disabling\ndriver monitoring", "scroll to continue",
+                    gui_app.texture("icons_mici/setup/warning.png", 64, 64)),
+      GreyBigButton("", "The cabin camera will stop watching your attention."),
+      GreyBigButton("", "sunnypilot will no longer warn you or force a disengagement when you look away from the road or fall asleep."),
+      GreyBigButton("", "Nothing will stop the car from continuing on its own."),
+      GreyBigButton("", "You remain fully responsible for watching the road and for the vehicle at all times."),
+      accept,
+    ])
 
 
 class TogglesLayoutMici(NavScroller):
@@ -26,6 +48,9 @@ class TogglesLayoutMici(NavScroller):
                                  description="Warn when you drift across a detected lane line.\n" +
                                              "Only above 31 mph (50 km/h), with no turn signal.")
     always_on_dm_toggle = BigParamControl("always-on driver monitor", "AlwaysOnDM", description="Monitor the driver even when sunnypilot is not engaged.")
+    self._disable_dm_btn = BigToggle("disable driver monitor",
+                                     initial_state=get_bool_safe(ui_state.params, "DisableDriverMonitoring"),
+                                     toggle_callback=self._on_disable_dm)
     record_front = BigParamControl("record & upload cabin camera", "RecordFront",
                                    description_icon=gui_app.texture("icons_mici/settings/device/cameras.png", 64, 64),
                                    toggle_callback=restart_needed_callback, description="Upload cabin camera data to help improve driver monitoring.")
@@ -44,6 +69,7 @@ class TogglesLayoutMici(NavScroller):
       is_metric_toggle,
       ldw_toggle,
       always_on_dm_toggle,
+      self._disable_dm_btn,
       record_front,
       record_mic,
       enable_openpilot,
@@ -54,12 +80,17 @@ class TogglesLayoutMici(NavScroller):
       ("IsMetric", is_metric_toggle),
       ("IsLdwEnabled", ldw_toggle),
       ("AlwaysOnDM", always_on_dm_toggle),
+      ("DisableDriverMonitoring", self._disable_dm_btn),
       ("RecordFront", record_front),
       ("RecordAudio", record_mic),
       ("OpenpilotEnabledToggle", enable_openpilot),
     )
 
     enable_openpilot.set_enabled(lambda: not ui_state.engaged)
+    # unsafe to flip mid-drive; always-on DM has no effect while monitoring is off
+    dm_param_known = param_known(ui_state.params, "DisableDriverMonitoring")
+    self._disable_dm_btn.set_enabled((lambda: not ui_state.engaged) if dm_param_known else False)
+    always_on_dm_toggle.set_enabled(lambda: not get_bool_safe(ui_state.params, "DisableDriverMonitoring"))
     record_front.set_enabled(False if ui_state.params.get_bool("RecordFrontLock") else (lambda: not ui_state.engaged))
     record_mic.set_enabled(lambda: not ui_state.engaged)
 
@@ -95,4 +126,17 @@ class TogglesLayoutMici(NavScroller):
 
     # Refresh toggles from params to mirror external changes
     for key, item in self._refresh_toggles:
-      item.set_checked(ui_state.params.get_bool(key))
+      item.set_checked(get_bool_safe(ui_state.params, key))
+
+  def _on_disable_dm(self, state: bool):
+    if state:
+      # Don't show enabled state until confirm
+      self._disable_dm_btn.set_checked(False)
+
+      def on_confirm():
+        ui_state.params.put_bool("DisableDriverMonitoring", True)
+        self._disable_dm_btn.set_checked(True)
+
+      gui_app.push_widget(DisableDriverMonitoringConfirmPage(on_confirm))
+    else:
+      ui_state.params.put_bool("DisableDriverMonitoring", state)
