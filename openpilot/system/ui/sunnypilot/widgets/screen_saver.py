@@ -12,6 +12,7 @@ import pyray as rl
 from openpilot.common.hardware import HARDWARE
 from openpilot.common.params import Params
 from openpilot.system.ui.lib.application import gui_app, FontWeight
+from openpilot.system.ui.lib.multilang import tr
 from openpilot.system.ui.lib.text_measure import measure_text_cached
 from openpilot.system.ui.widgets import Widget
 
@@ -30,7 +31,7 @@ class ScreenSaverSP(Widget):
     self._hue = 150
     self.color = rl.color_from_hsv(self._hue, 1, 1)
 
-    self.text = "ChadolePilot"
+    self.text = tr("ChadolPilot")
     self.font_size = 50 if self._is_mici else 200
     self._start_time = None
     self._dismiss = False
@@ -46,6 +47,7 @@ class ScreenSaverSP(Widget):
     return self._dismiss
 
   def initialize(self):
+    self.text = tr("ChadolPilot")
     self._screensaver_timeout = self._params.get("ScreenSaverTimeout", return_default=True)
     if self._start_time is None:
       self._start_time = time.monotonic()

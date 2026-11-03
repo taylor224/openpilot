@@ -562,7 +562,7 @@ class Setup(Widget):
 
     except urllib.error.HTTPError as e:
       if e.code == 409:
-        self._download_failed_reason = "Incompatible ChadolePilot version."
+        self._download_failed_reason = "Incompatible ChadolPilot version."
     except Exception:
       self._download_failed_reason = "Invalid URL: " + self.download_url.replace("https://", "", 1)
 

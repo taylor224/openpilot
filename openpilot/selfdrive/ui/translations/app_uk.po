@@ -138,7 +138,7 @@ msgid "Change Language"
 msgstr "Змінити мову"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Changing this setting will restart ChadolePilot if the car is powered on."
+msgid "Changing this setting will restart ChadolPilot if the car is powered on."
 msgstr ""
 
 #: system/ui/sunnypilot/widgets/sunnylink_pairing_dialog.py
@@ -166,7 +166,7 @@ msgid "Decline"
 msgstr "Відхилити"
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "Decline, uninstall ChadolePilot"
+msgid "Decline, uninstall ChadolPilot"
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/settings.py
@@ -258,15 +258,15 @@ msgid "Enable Tethering"
 msgstr "Увімкнути точку доступу"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Enable driver monitoring even when ChadolePilot is not engaged."
+msgid "Enable driver monitoring even when ChadolPilot is not engaged."
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Enable ChadolePilot"
+msgid "Enable ChadolPilot"
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Enable the ChadolePilot longitudinal control (alpha) toggle to allow Experimental mode."
+msgid "Enable the ChadolPilot longitudinal control (alpha) toggle to allow Experimental mode."
 msgstr ""
 
 #: system/ui/widgets/network.py
@@ -574,7 +574,7 @@ msgid "Review Training Guide"
 msgstr "Переглянути посібник з навчання"
 
 #: openpilot/selfdrive/ui/layouts/settings/device.py
-msgid "Review the rules, features, and limitations of ChadolePilot"
+msgid "Review the rules, features, and limitations of ChadolPilot"
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/software.py
@@ -702,11 +702,11 @@ msgid "Waiting to start"
 msgstr "Очікування початку"
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "Welcome to ChadolePilot"
+msgid "Welcome to ChadolPilot"
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "When enabled, pressing the accelerator pedal will disengage ChadolePilot."
+msgid "When enabled, pressing the accelerator pedal will disengage ChadolPilot."
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/sidebar.py
@@ -722,11 +722,11 @@ msgid "Wrong password"
 msgstr "Невірний пароль"
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "You must accept the Terms of Service in order to use ChadolePilot."
+msgid "You must accept the Terms of Service in order to use ChadolPilot."
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "You must accept the Terms of Service to use ChadolePilot. Read the latest terms at https://sunnypilot.ai/terms before continuing."
+msgid "You must accept the Terms of Service to use ChadolPilot. Read the latest terms at https://sunnypilot.ai/terms before continuing."
 msgstr ""
 
 #: openpilot/selfdrive/ui/onroad/driver_camera_dialog.py
@@ -810,19 +810,27 @@ msgid "right"
 msgstr "вправо"
 
 #: openpilot/selfdrive/ui/layouts/settings/developer.py
-msgid "ChadolePilot Longitudinal Control (Alpha)"
+msgid "ChadolPilot Longitudinal Control (Alpha)"
+msgstr ""
+
+#: openpilot/selfdrive/ui/layouts/home.py
+#: openpilot/selfdrive/ui/mici/layouts/home.py
+#: openpilot/selfdrive/ui/sunnypilot/layouts/home.py
+#: openpilot/selfdrive/ui/sunnypilot/mici/layouts/home.py
+#: openpilot/system/ui/sunnypilot/widgets/screen_saver.py
+msgid "ChadolPilot"
 msgstr ""
 
 #: openpilot/selfdrive/ui/onroad/alert_renderer.py
-msgid "ChadolePilot Unavailable"
+msgid "ChadolPilot Unavailable"
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "ChadolePilot longitudinal control may come in a future update."
+msgid "ChadolPilot longitudinal control may come in a future update."
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/device.py
-msgid "ChadolePilot requires the device to be mounted within 4° left or right and within 5° up or 9° down."
+msgid "ChadolPilot requires the device to be mounted within 4° left or right and within 5° up or 9° down."
 msgstr ""
 
 #: system/ui/widgets/network.py

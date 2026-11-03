@@ -15,8 +15,8 @@ First, check out this list of items you'll need to [get started](https://communi
 
 ## Installation
 
-### ChadolePilot 설치하기
-ChadolePilot 은 sunnypilot 기반 포크입니다. 기본 브랜치는 `main` 입니다. (Hyundai/Kia/Genesis 2025 angle steering, Kia EV3, CCNC 지원 포함)
+### ChadolPilot (차돌파일럿) 설치하기
+ChadolPilot 은 sunnypilot 기반 포크입니다. 기본 브랜치는 `main` 입니다. (Hyundai/Kia/Genesis 2025 angle steering, Kia EV3, CCNC 지원 포함)
 
 1. comma 디바이스 초기 설정 화면에서 **Custom Software** 를 선택합니다.
 2. 아래 URL 을 입력합니다.
@@ -30,8 +30,8 @@ installer.comma.ai/taylor224/main
 * 이미 openpilot / sunnypilot 이 설치된 디바이스는 **설정 → Software → Uninstall** 로 초기 설정 화면으로 돌아간 뒤 위 과정을 진행합니다.
 * 다른 브랜치는 `installer.comma.ai/taylor224/<branch>` 형식으로 설치합니다.
 
-### Installing ChadolePilot
-ChadolePilot is a sunnypilot-based fork. The default branch of this repository is `main`.
+### Installing ChadolPilot
+ChadolPilot is a sunnypilot-based fork. The default branch of this repository is `main`.
 
 1. On the comma device setup screen, choose **Custom Software**.
 2. Enter the URL below.

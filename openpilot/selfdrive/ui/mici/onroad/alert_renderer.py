@@ -69,7 +69,7 @@ class Alert:
 
 # Pre-defined alert instances
 ALERT_STARTUP_PENDING = Alert(
-  text1="ChadolePilot Unavailable",
+  text1="ChadolPilot Unavailable",
   text2="Waiting to start",
   size=AlertSize.mid,
   status=AlertStatus.normal,

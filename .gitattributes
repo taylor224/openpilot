@@ -15,6 +15,6 @@ openpilot/sunnypilot/modeld_v2/models/*.pkl filter=lfs diff=lfs merge=lfs -text
 openpilot/selfdrive/car/tests/test_models_segs.txt filter=lfs diff=lfs merge=lfs -text
 openpilot/common/hardware/comma/updater filter=lfs diff=lfs merge=lfs -text
 
-# ChadolePilot brand assets live in git directly: this fork has no write access to the upstream LFS server
+# ChadolPilot brand assets live in git directly: this fork has no write access to the upstream LFS server
 openpilot/sunnypilot/selfdrive/assets/logo.png -filter -diff -merge -text
 openpilot/sunnypilot/selfdrive/assets/images/spinner_sunnypilot.png -filter -diff -merge -text

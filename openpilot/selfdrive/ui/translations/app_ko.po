@@ -142,8 +142,8 @@ msgid "Change Language"
 msgstr "언어 변경"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Changing this setting will restart ChadolePilot if the car is powered on."
-msgstr ""
+msgid "Changing this setting will restart ChadolPilot if the car is powered on."
+msgstr "이 설정을 변경하면 차량 전원이 켜져 있을 경우 차돌파일럿이 재시작됩니다."
 
 #: system/ui/sunnypilot/widgets/sunnylink_pairing_dialog.py
 msgid "Choose your sponsorship tier and confirm your support"
@@ -170,8 +170,8 @@ msgid "Decline"
 msgstr "거부"
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "Decline, uninstall ChadolePilot"
-msgstr ""
+msgid "Decline, uninstall ChadolPilot"
+msgstr "거부하고 차돌파일럿 제거"
 
 #: openpilot/selfdrive/ui/layouts/settings/settings.py
 msgid "Developer"
@@ -190,8 +190,8 @@ msgid "Disable Driver Monitoring"
 msgstr "운전자 모니터링 끄기"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Stop the driver monitoring camera from watching your attention. ChadolePilot will no longer warn you or force a disengagement when you look away from the road or fall asleep, and nothing will stop the car from continuing on its own. You remain fully responsible for watching the road and for the vehicle at all times."
-msgstr "운전자 모니터링 카메라가 운전자의 주의 상태를 감시하지 않습니다. 전방에서 시선을 돌리거나 졸더라도 sunnypilot이 더 이상 경고하거나 강제로 해제하지 않으며, 차량이 그대로 주행을 이어가는 것을 막아주지 않습니다. 항상 전방을 주시하고 차량을 통제할 책임은 전적으로 운전자에게 있습니다."
+msgid "Stop the driver monitoring camera from watching your attention. ChadolPilot will no longer warn you or force a disengagement when you look away from the road or fall asleep, and nothing will stop the car from continuing on its own. You remain fully responsible for watching the road and for the vehicle at all times."
+msgstr "운전자 모니터링 카메라가 운전자의 주의 상태를 감시하지 않습니다. 전방에서 시선을 돌리거나 졸더라도 차돌파일럿이 더 이상 경고하거나 강제로 해제하지 않으며, 차량이 그대로 주행을 이어가는 것을 막아주지 않습니다. 항상 전방을 주시하고 차량을 통제할 책임은 전적으로 운전자에게 있습니다."
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
 msgid "Disengage on Accelerator Pedal"
@@ -274,16 +274,16 @@ msgid "Enable Tethering"
 msgstr "테더링 사용"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Enable driver monitoring even when ChadolePilot is not engaged."
-msgstr ""
+msgid "Enable driver monitoring even when ChadolPilot is not engaged."
+msgstr "차돌파일럿이 작동 중이 아닐 때도 운전자 모니터링을 사용합니다."
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Enable ChadolePilot"
-msgstr ""
+msgid "Enable ChadolPilot"
+msgstr "차돌파일럿 사용"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Enable the ChadolePilot longitudinal control (alpha) toggle to allow Experimental mode."
-msgstr ""
+msgid "Enable the ChadolPilot longitudinal control (alpha) toggle to allow Experimental mode."
+msgstr "실험 모드를 사용하려면 차돌파일럿 롱컨 제어 (알파) 토글을 켜세요."
 
 #: system/ui/widgets/network.py
 msgid "Enter APN"
@@ -602,8 +602,8 @@ msgid "Review Training Guide"
 msgstr "학습 가이드 검토"
 
 #: openpilot/selfdrive/ui/layouts/settings/device.py
-msgid "Review the rules, features, and limitations of ChadolePilot"
-msgstr ""
+msgid "Review the rules, features, and limitations of ChadolPilot"
+msgstr "차돌파일럿의 규칙, 기능 및 제한 사항을 확인하세요"
 
 #: openpilot/selfdrive/ui/layouts/settings/software.py
 msgid "SELECT"
@@ -730,12 +730,12 @@ msgid "Waiting to start"
 msgstr "시작 대기 중"
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "Welcome to ChadolePilot"
-msgstr ""
+msgid "Welcome to ChadolPilot"
+msgstr "차돌파일럿에 오신 것을 환영합니다"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "When enabled, pressing the accelerator pedal will disengage ChadolePilot."
-msgstr ""
+msgid "When enabled, pressing the accelerator pedal will disengage ChadolPilot."
+msgstr "활성화하면 가속 페달을 밟을 때 차돌파일럿이 해제됩니다."
 
 #: openpilot/selfdrive/ui/layouts/sidebar.py
 msgid "Wi-Fi"
@@ -750,12 +750,12 @@ msgid "Wrong password"
 msgstr "비밀번호가 올바르지 않습니다"
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "You must accept the Terms of Service in order to use ChadolePilot."
-msgstr ""
+msgid "You must accept the Terms of Service in order to use ChadolPilot."
+msgstr "차돌파일럿을 사용하려면 서비스 이용약관에 동의해야 합니다."
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "You must accept the Terms of Service to use ChadolePilot. Read the latest terms at https://sunnypilot.ai/terms before continuing."
-msgstr ""
+msgid "You must accept the Terms of Service to use ChadolPilot. Read the latest terms at https://sunnypilot.ai/terms before continuing."
+msgstr "차돌파일럿을 사용하려면 서비스 이용약관에 동의해야 합니다. 계속하기 전에 https://sunnypilot.ai/terms 에서 최신 약관을 확인하세요."
 
 #: openpilot/selfdrive/ui/onroad/driver_camera_dialog.py
 msgid "camera starting"
@@ -838,20 +838,28 @@ msgid "right"
 msgstr "오른쪽"
 
 #: openpilot/selfdrive/ui/layouts/settings/developer.py
-msgid "ChadolePilot Longitudinal Control (Alpha)"
-msgstr ""
+msgid "ChadolPilot Longitudinal Control (Alpha)"
+msgstr "차돌파일럿 롱컨 제어 (알파)"
+
+#: openpilot/selfdrive/ui/layouts/home.py
+#: openpilot/selfdrive/ui/mici/layouts/home.py
+#: openpilot/selfdrive/ui/sunnypilot/layouts/home.py
+#: openpilot/selfdrive/ui/sunnypilot/mici/layouts/home.py
+#: openpilot/system/ui/sunnypilot/widgets/screen_saver.py
+msgid "ChadolPilot"
+msgstr "차돌파일럿"
 
 #: openpilot/selfdrive/ui/onroad/alert_renderer.py
-msgid "ChadolePilot Unavailable"
-msgstr ""
+msgid "ChadolPilot Unavailable"
+msgstr "차돌파일럿 사용 불가"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "ChadolePilot longitudinal control may come in a future update."
-msgstr ""
+msgid "ChadolPilot longitudinal control may come in a future update."
+msgstr "차돌파일럿 롱컨 제어는 향후 업데이트에서 지원될 수 있습니다."
 
 #: openpilot/selfdrive/ui/layouts/settings/device.py
-msgid "ChadolePilot requires the device to be mounted within 4° left or right and within 5° up or 9° down."
-msgstr ""
+msgid "ChadolPilot requires the device to be mounted within 4° left or right and within 5° up or 9° down."
+msgstr "차돌파일럿은 장치가 좌우 4° 이내, 위로 5° 또는 아래로 9° 이내로 장착되어야 합니다."
 
 #: system/ui/widgets/network.py
 msgid "unmetered"
