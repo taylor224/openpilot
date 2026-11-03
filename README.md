@@ -15,35 +15,35 @@ First, check out this list of items you'll need to [get started](https://communi
 
 ## Installation
 
-### 이 포크 설치하기 (Flight-Information-Service)
-이 저장소의 기본 브랜치는 `main` 입니다. (Hyundai/Kia/Genesis 2025 angle steering, Kia EV3, CCNC 지원 포함)
+### ChadolePilot 설치하기
+ChadolePilot 은 sunnypilot 기반 포크입니다. 기본 브랜치는 `main` 입니다. (Hyundai/Kia/Genesis 2025 angle steering, Kia EV3, CCNC 지원 포함)
 
 1. comma 디바이스 초기 설정 화면에서 **Custom Software** 를 선택합니다.
 2. 아래 URL 을 입력합니다.
 
 ```
-installer.comma.ai/Flight-Information-Service/main
+installer.comma.ai/taylor224/main
 ```
 
 3. 설치가 끝나면 디바이스가 재부팅됩니다. `prebuilt` 브랜치가 아니므로 첫 부팅 시 디바이스에서 직접 빌드합니다. 빌드가 끝날 때까지 전원을 끄지 마세요.
 
 * 이미 openpilot / sunnypilot 이 설치된 디바이스는 **설정 → Software → Uninstall** 로 초기 설정 화면으로 돌아간 뒤 위 과정을 진행합니다.
-* 다른 브랜치는 `installer.comma.ai/Flight-Information-Service/<branch>` 형식으로 설치합니다.
+* 다른 브랜치는 `installer.comma.ai/taylor224/<branch>` 형식으로 설치합니다.
 
-### Installing this fork
-The default branch of this repository is `main`.
+### Installing ChadolePilot
+ChadolePilot is a sunnypilot-based fork. The default branch of this repository is `main`.
 
 1. On the comma device setup screen, choose **Custom Software**.
 2. Enter the URL below.
 
 ```
-installer.comma.ai/Flight-Information-Service/main
+installer.comma.ai/taylor224/main
 ```
 
 3. The device reboots when the install finishes. This is not a `prebuilt` branch, so the first boot builds on-device. Keep the device powered until the build completes.
 
 * If openpilot / sunnypilot is already installed, go to **Settings → Software → Uninstall** to return to the setup screen first.
-* Other branches: `installer.comma.ai/Flight-Information-Service/<branch>`.
+* Other branches: `installer.comma.ai/taylor224/<branch>`.
 
 ### sunnypilot upstream
 Refer to the sunnypilot community forum for [installation instructions](https://community.sunnypilot.ai/t/read-before-installing-sunnypilot/254), as well as a complete list of [Recommended Branch Installations](https://community.sunnypilot.ai/t/recommended-branch-installations/235).

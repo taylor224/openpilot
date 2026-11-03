@@ -25,7 +25,7 @@ class DisableDriverMonitoringConfirmPage(NavScroller):
       GreyBigButton("disabling\ndriver monitoring", "scroll to continue",
                     gui_app.texture("icons_mici/setup/warning.png", 64, 64)),
       GreyBigButton("", "The cabin camera will stop watching your attention."),
-      GreyBigButton("", "sunnypilot will no longer warn you or force a disengagement when you look away from the road or fall asleep."),
+      GreyBigButton("", "ChadolePilot will no longer warn you or force a disengagement when you look away from the road or fall asleep."),
       GreyBigButton("", "Nothing will stop the car from continuing on its own."),
       GreyBigButton("", "You remain fully responsible for watching the road and for the vehicle at all times."),
       accept,
@@ -47,7 +47,7 @@ class TogglesLayoutMici(NavScroller):
     ldw_toggle = BigParamControl("lane departure warnings", "IsLdwEnabled",
                                  description="Warn when you drift across a detected lane line.\n" +
                                              "Only above 31 mph (50 km/h), with no turn signal.")
-    always_on_dm_toggle = BigParamControl("always-on driver monitor", "AlwaysOnDM", description="Monitor the driver even when sunnypilot is not engaged.")
+    always_on_dm_toggle = BigParamControl("always-on driver monitor", "AlwaysOnDM", description="Monitor the driver even when ChadolePilot is not engaged.")
     self._disable_dm_btn = BigToggle("disable driver monitor",
                                      initial_state=get_bool_safe(ui_state.params, "DisableDriverMonitoring"),
                                      toggle_callback=self._on_disable_dm)
@@ -58,8 +58,8 @@ class TogglesLayoutMici(NavScroller):
                                  toggle_callback=restart_needed_callback,
                                  description="Record microphone audio while driving.\n" +
                                              "Audio is included in dashcam videos in sunnylink.")
-    enable_openpilot = BigParamControl("enable sunnypilot", "OpenpilotEnabledToggle", toggle_callback=restart_needed_callback,
-                                       description="Enable to use sunnypilot driver assistance.\n" +
+    enable_openpilot = BigParamControl("enable ChadolePilot", "OpenpilotEnabledToggle", toggle_callback=restart_needed_callback,
+                                       description="Enable to use ChadolePilot driver assistance.\n" +
                                                    "Disable to use your car's stock driver assistance.")
 
 

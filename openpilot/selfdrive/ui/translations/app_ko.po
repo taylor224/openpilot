@@ -142,7 +142,7 @@ msgid "Change Language"
 msgstr "언어 변경"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Changing this setting will restart sunnypilot if the car is powered on."
+msgid "Changing this setting will restart ChadolePilot if the car is powered on."
 msgstr ""
 
 #: system/ui/sunnypilot/widgets/sunnylink_pairing_dialog.py
@@ -170,7 +170,7 @@ msgid "Decline"
 msgstr "거부"
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "Decline, uninstall sunnypilot"
+msgid "Decline, uninstall ChadolePilot"
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/settings.py
@@ -190,7 +190,7 @@ msgid "Disable Driver Monitoring"
 msgstr "운전자 모니터링 끄기"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Stop the driver monitoring camera from watching your attention. sunnypilot will no longer warn you or force a disengagement when you look away from the road or fall asleep, and nothing will stop the car from continuing on its own. You remain fully responsible for watching the road and for the vehicle at all times."
+msgid "Stop the driver monitoring camera from watching your attention. ChadolePilot will no longer warn you or force a disengagement when you look away from the road or fall asleep, and nothing will stop the car from continuing on its own. You remain fully responsible for watching the road and for the vehicle at all times."
 msgstr "운전자 모니터링 카메라가 운전자의 주의 상태를 감시하지 않습니다. 전방에서 시선을 돌리거나 졸더라도 sunnypilot이 더 이상 경고하거나 강제로 해제하지 않으며, 차량이 그대로 주행을 이어가는 것을 막아주지 않습니다. 항상 전방을 주시하고 차량을 통제할 책임은 전적으로 운전자에게 있습니다."
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
@@ -274,15 +274,15 @@ msgid "Enable Tethering"
 msgstr "테더링 사용"
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Enable driver monitoring even when sunnypilot is not engaged."
+msgid "Enable driver monitoring even when ChadolePilot is not engaged."
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Enable sunnypilot"
+msgid "Enable ChadolePilot"
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "Enable the sunnypilot longitudinal control (alpha) toggle to allow Experimental mode."
+msgid "Enable the ChadolePilot longitudinal control (alpha) toggle to allow Experimental mode."
 msgstr ""
 
 #: system/ui/widgets/network.py
@@ -602,7 +602,7 @@ msgid "Review Training Guide"
 msgstr "학습 가이드 검토"
 
 #: openpilot/selfdrive/ui/layouts/settings/device.py
-msgid "Review the rules, features, and limitations of sunnypilot"
+msgid "Review the rules, features, and limitations of ChadolePilot"
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/software.py
@@ -730,11 +730,11 @@ msgid "Waiting to start"
 msgstr "시작 대기 중"
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "Welcome to sunnypilot"
+msgid "Welcome to ChadolePilot"
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "When enabled, pressing the accelerator pedal will disengage sunnypilot."
+msgid "When enabled, pressing the accelerator pedal will disengage ChadolePilot."
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/sidebar.py
@@ -750,11 +750,11 @@ msgid "Wrong password"
 msgstr "비밀번호가 올바르지 않습니다"
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "You must accept the Terms of Service in order to use sunnypilot."
+msgid "You must accept the Terms of Service in order to use ChadolePilot."
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/onboarding.py
-msgid "You must accept the Terms of Service to use sunnypilot. Read the latest terms at https://sunnypilot.ai/terms before continuing."
+msgid "You must accept the Terms of Service to use ChadolePilot. Read the latest terms at https://sunnypilot.ai/terms before continuing."
 msgstr ""
 
 #: openpilot/selfdrive/ui/onroad/driver_camera_dialog.py
@@ -838,19 +838,19 @@ msgid "right"
 msgstr "오른쪽"
 
 #: openpilot/selfdrive/ui/layouts/settings/developer.py
-msgid "sunnypilot Longitudinal Control (Alpha)"
+msgid "ChadolePilot Longitudinal Control (Alpha)"
 msgstr ""
 
 #: openpilot/selfdrive/ui/onroad/alert_renderer.py
-msgid "sunnypilot Unavailable"
+msgid "ChadolePilot Unavailable"
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/toggles.py
-msgid "sunnypilot longitudinal control may come in a future update."
+msgid "ChadolePilot longitudinal control may come in a future update."
 msgstr ""
 
 #: openpilot/selfdrive/ui/layouts/settings/device.py
-msgid "sunnypilot requires the device to be mounted within 4° left or right and within 5° up or 9° down."
+msgid "ChadolePilot requires the device to be mounted within 4° left or right and within 5° up or 9° down."
 msgstr ""
 
 #: system/ui/widgets/network.py

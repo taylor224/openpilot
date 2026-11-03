@@ -22,22 +22,22 @@ PERSONALITY_TO_INT = log.LongitudinalPersonality.schema.enumerants
 # Description constants
 DESCRIPTIONS = {
   "OpenpilotEnabledToggle": tr_noop(
-    "Use the sunnypilot system for adaptive cruise control and lane keep driver assistance. " +
+    "Use the ChadolePilot system for adaptive cruise control and lane keep driver assistance. " +
     "Your attention is required at all times to use this feature."
   ),
-  "DisengageOnAccelerator": tr_noop("When enabled, pressing the accelerator pedal will disengage sunnypilot."),
+  "DisengageOnAccelerator": tr_noop("When enabled, pressing the accelerator pedal will disengage ChadolePilot."),
   "LongitudinalPersonality": tr_noop(
-    "Standard is recommended. In aggressive mode, sunnypilot will follow lead cars closer and be more aggressive with the gas and brake. " +
-    "In relaxed mode sunnypilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with " +
+    "Standard is recommended. In aggressive mode, ChadolePilot will follow lead cars closer and be more aggressive with the gas and brake. " +
+    "In relaxed mode ChadolePilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with " +
     "your steering wheel distance button."
   ),
   "IsLdwEnabled": tr_noop(
     "Receive alerts to steer back into the lane when your vehicle drifts over a detected lane line " +
     "without a turn signal activated while driving over 31 mph (50 km/h)."
   ),
-  "AlwaysOnDM": tr_noop("Enable driver monitoring even when sunnypilot is not engaged."),
+  "AlwaysOnDM": tr_noop("Enable driver monitoring even when ChadolePilot is not engaged."),
   "DisableDriverMonitoring": tr_noop(
-    "Stop the driver monitoring camera from watching your attention. sunnypilot will no longer warn you or force a disengagement "
+    "Stop the driver monitoring camera from watching your attention. ChadolePilot will no longer warn you or force a disengagement "
     "when you look away from the road or fall asleep, and nothing will stop the car from continuing on its own. "
     "You remain fully responsible for watching the road and for the vehicle at all times."
   ),
@@ -58,7 +58,7 @@ class TogglesLayout(Widget):
     # param, title, desc, icon, needs_restart
     self._toggle_defs = {
       "OpenpilotEnabledToggle": (
-        lambda: tr("Enable sunnypilot"),
+        lambda: tr("Enable ChadolePilot"),
         DESCRIPTIONS["OpenpilotEnabledToggle"],
         "chffr_wheel.png",
         True,
@@ -147,7 +147,7 @@ class TogglesLayout(Widget):
       # Make description callable for live translation
       additional_desc = ""
       if needs_restart and not locked:
-        additional_desc = tr("Changing this setting will restart sunnypilot if the car is powered on.")
+        additional_desc = tr("Changing this setting will restart ChadolePilot if the car is powered on.")
       toggle.set_description(lambda og_desc=toggle.description, add_desc=additional_desc: tr(og_desc) + (" " + tr(add_desc) if add_desc else ""))
 
       # track for engaged state updates
