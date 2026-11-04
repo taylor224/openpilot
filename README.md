@@ -16,7 +16,7 @@ First, check out this list of items you'll need to [get started](https://communi
 ## Installation
 
 ### ChadolPilot (차돌파일럿) 설치하기
-ChadolPilot 은 sunnypilot 기반 포크입니다. 기본 브랜치는 `main` 입니다. (Hyundai/Kia/Genesis 2025 angle steering, Kia EV3, CCNC 지원 포함)
+ChadolPilot 은 sunnypilot 기반 포크입니다. 기본 브랜치는 `main` 입니다. (Hyundai/Kia/Genesis 2025 angle steering, Kia EV3/EV4, CCNC 지원 포함)
 
 1. comma 디바이스 초기 설정 화면에서 **Custom Software** 를 선택합니다.
 2. 아래 URL 을 입력합니다.
